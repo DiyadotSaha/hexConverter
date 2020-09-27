@@ -1,12 +1,6 @@
 ##########################################################################
 # Created by: Saha, Diya
-# 	      dsaha4
 #             24 May 2020
-#
-# Assignment: Lab 4: Sorting Integers 
-# 		     CSE 12, Computer Systems and Assembly Language
-#		     UC Santa Cruz, Spring 2020
-#
 # Description:  
 #	This program access hex numbers from program arguments and 
 #	converts the hexs to intergers and prints to the screen. 
@@ -88,7 +82,7 @@
 	li 	$v0 4			
 	la 	$a0 proArgs					# printing label for progargs			
 	syscall
-	printprogargs:						#-got--from--TA's------demo----------
+	printprogargs:						
 		beq 	$t1 $s5 end				# if counter = #porgargs
 		beq	$t1 $zero nospace2 
 		li 	$v0 4
@@ -101,7 +95,7 @@
 		addi 	$a1 $a1 4				# increment register by 4
 		addi 	$t1 $t1 1				# increment counter by 1 
 		b printprogargs 
-	end: 							#-got--from--TA's------demo----------
+	end: 							
 	li 	$v0 4 
 	la 	$a0 newline					# print new line 
 	syscall
@@ -133,7 +127,7 @@
 		addi 	$s1 $s1 4				# next hex num
 	move 	$t4 $zero					# set $t4 to zero 
 	move 	$t6 $zero 					# set $t6 to zero 
-	calcloop:						#---got from LAB DEMO -----
+	calcloop:						
 		nop
 		lb   	$t3 2($t0)				#hex of each digit
 		beq  	$t3 0 printloop				#null termination
@@ -145,7 +139,7 @@
 		subi 	$t3 $t3 0x30	
 		mul  	$t4 $t4 16				#0xabc=[(a*16)+b]*16+c=a*16^2+b*16+c
 		add  	$t4 $t4 $t3
-		b 	calcloop				#---got from LAB DEMO -----
+		b 	calcloop				
 	ifalpha:						# for coverting letter
 		addi 	$t0 $t0 1				# incrementing counter
 		subi 	$t3 $t3 0x37				# offset with subtraction for letters 	
